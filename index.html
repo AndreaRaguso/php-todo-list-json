@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>To do list</title>
 </head>
@@ -13,12 +14,24 @@
 
     <div id="app">
 
+        <h1>Todo List</h1>
+<!--add class with vuejs? -->
+
+
         <div class="todos">
             <ul>
-                <li v-for="(todo, index) in todos">
-                    {{ todo.text }}
+                <li v-for="(todo, index) in todos" :class="{'underline': index < todos.length -1}">
+                    <div class="todo">
+                        <span :class="{'done' : todo.done}">{{ todo.text }}</span>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
                 </li>
             </ul>
+        </div>
+
+        <div class="add-todo">
+            <input type="text" placeholder="Inserisci un elemento...">
+            <button>Inserisci</button>
         </div>
 
     </div>
@@ -26,6 +39,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+
 </body>
 
 </html>
