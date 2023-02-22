@@ -1,0 +1,10 @@
+[
+    {
+        "text" : "Fare la spesa",
+        "done" : false
+    },
+    {
+        "text" : "Fare i compiti",
+        "done" : true
+    }
+]
