@@ -6,6 +6,7 @@
     $newTask = [
         'text' => $_POST['task']['text'],
         'done' => false,
+        'id' => true
     ];
 
     $todosDecoded[] = $newTask;

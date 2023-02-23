@@ -7,9 +7,10 @@ createApp({
             todos: [],
             newTask:{
                 'text' : '',
-                'done' : false
+                'done' : false,
             },
             createUrl: './create.php',
+            deleteUrl: './delete.php',
         };
     },
     methods: {
@@ -28,12 +29,26 @@ createApp({
                 }
             }
             ).then(() => {
-
+                this.ids = this.ids + 1;
                 this.todos.push({
                     text: this.newTask.text,
+                    done: this.newTask.done,
                 });
 
                 this.newTask.text = '';
+            });
+        },
+
+        delTask(index){
+            axios.post(this.deleteUrl, {
+                task: this.todos[index]
+            }, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+            ).then(() => {
+                this.todos.splice(index , 1);
             });
         }
 
